@@ -3,8 +3,9 @@ const videos = [
     title: "双手抓水果",
     group: "乐聚机器人",
     key: "leju",
-    src: "乐聚机器人视频素材/双手抓水果.mp4",
-    size: "74.8 MB"
+    src: "",
+    size: "74.8 MB",
+    note: "该视频体积较大，当前线上版本待补传或改为外链。"
   },
   {
     title: "强化学习走路 1",
@@ -80,8 +81,9 @@ const videos = [
     title: "AEG Bot 家居整理",
     group: "湘江智伴",
     key: "xiangjiang",
-    src: "湘江智伴视频材料/aeg_bot_rearrangement.mp4",
-    size: "61.3 MB"
+    src: "",
+    size: "61.3 MB",
+    note: "该视频体积较大，当前线上版本待补传或改为外链。"
   },
   {
     title: "抓取盆",
@@ -193,6 +195,7 @@ let activeFilter = "all";
 function tagClass(key) {
   if (key === "unitree") return "unitree";
   if (key === "xiangjiang") return "xiangjiang";
+  if (key === "leju") return "leju";
   return "";
 }
 
@@ -213,7 +216,7 @@ function renderGallery() {
 
   gallery.innerHTML = filtered
     .map((video, index) => `
-      <article class="video-card">
+      <article class="video-card ${video.key}-card">
         <div class="media-frame">
           ${video.src
             ? `<video src="${video.src}" muted playsinline preload="metadata"></video>`
