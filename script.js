@@ -81,9 +81,8 @@ const videos = [
     title: "AEG Bot 家居整理",
     group: "湘江智伴",
     key: "xiangjiang",
-    src: "",
-    size: "61.3 MB",
-    note: "该视频体积较大，当前线上版本待补传或改为外链。"
+    src: "湘江智伴视频材料/aeg_bot_rearrangement.mp4",
+    size: "61.3 MB"
   },
   {
     title: "抓取盆",
