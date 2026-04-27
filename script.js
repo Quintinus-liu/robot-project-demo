@@ -182,39 +182,44 @@ const videos = [
 
 const projects = [
   {
-    key: "leju",
-    name: "乐聚机器人",
-    eyebrow: "Leju Robotics",
-    description: "聚焦双臂抓取、强化学习行走与多类水果物体操作，体现机器人在精细操作和运动控制上的综合能力。",
-    tags: ["双臂协同", "强化学习运动", "日常物品抓取"]
+    key: "xiangjiang",
+    number: "Project 01",
+    period: "2024.08 - 2024.12",
+    category: "居家服务机器人",
+    name: "湘江智伴自研机器人",
+    description: "精选场景整理、抓盆、多目标抓取和精细交互片段",
+    tags: ["抓取成功率 90%+", "LLM 任务规划", "Sim2Real 部署"]
   },
   {
-    key: "xiangjiang",
-    name: "湘江智伴",
-    eyebrow: "Xiangjiang Companion",
-    description: "围绕居家服务场景展开，覆盖多目标抓取、家居整理、钢琴交互等任务，突出环境理解与服务执行。",
-    tags: ["居家服务", "多目标抓取", "人机交互"]
+    key: "leju",
+    number: "Project 02",
+    period: "2025.07 - 2025.11",
+    category: "陪护与安全监护机器人",
+    name: "乐聚机器人",
+    description: "精选强化学习走路、双手抓水果、抓拐杖和抓瓶子片段",
+    tags: ["跌倒检测 95%", "抓取成功率 80%+", "ROS 节点部署"]
   },
   {
     key: "unitree",
+    number: "Project 03",
+    period: "2025.11 - 2026.04",
+    category: "人形机器人平台",
     name: "宇树 G1",
-    eyebrow: "Unitree G1",
-    description: "展示人形机器人本体动作与运动表现，作为项目中具身智能平台能力的补充展示。",
-    tags: ["人形机器人", "本体运动", "平台演示"]
+    description: "精选人形机器人本体运动、平台演示和大视频待补传片段",
+    tags: ["人形机器人", "运动控制", "平台验证"]
   }
 ];
 
 const gallery = document.querySelector("#gallery");
-const searchInput = document.querySelector("#searchInput");
-const tabs = document.querySelectorAll(".tab");
-const videoCount = document.querySelector("#videoCount");
 const dialog = document.querySelector("#videoDialog");
 const dialogVideo = document.querySelector("#dialogVideo");
 const dialogTitle = document.querySelector("#dialogTitle");
 const dialogGroup = document.querySelector("#dialogGroup");
 const closeButton = document.querySelector(".close-button");
-
-let activeFilter = "all";
+const imageDialog = document.querySelector("#imageDialog");
+const dialogImage = document.querySelector("#dialogImage");
+const imageCloseButton = document.querySelector(".image-close-button");
+const activityImages = document.querySelectorAll(".activity-grid img");
 
 function tagClass(key) {
   if (key === "unitree") return "unitree";
@@ -224,23 +229,10 @@ function tagClass(key) {
 }
 
 function renderGallery() {
-  const query = searchInput.value.trim().toLowerCase();
-  const visibleProjects = projects
-    .filter((project) => activeFilter === "all" || project.key === activeFilter)
-    .map((project) => {
-      const projectVideos = videos.filter((video) => {
-        const matchesProject = video.key === project.key;
-        const matchesSearch = `${video.title} ${video.group}`.toLowerCase().includes(query);
-        return matchesProject && matchesSearch;
-      });
-
-      return { ...project, videos: projectVideos };
-    })
-    .filter((project) => project.videos.length);
-
-  const filteredCount = visibleProjects.reduce((total, project) => total + project.videos.length, 0);
-
-  videoCount.textContent = filteredCount || videos.length;
+  const visibleProjects = projects.map((project) => ({
+    ...project,
+    videos: videos.filter((video) => video.key === project.key)
+  }));
 
   if (!visibleProjects.length) {
     gallery.innerHTML = '<p class="empty">没有找到匹配的视频素材。</p>';
@@ -250,17 +242,18 @@ function renderGallery() {
   gallery.innerHTML = visibleProjects
     .map((project) => `
       <section class="project-section ${project.key}-section">
-        <article class="project-panel ${project.key}-panel">
+        <div class="project-heading">
           <div>
-            <p class="panel-kicker">${project.eyebrow}</p>
+            <p class="project-meta">${project.number} · ${project.period} · ${project.category}</p>
             <h2>${project.name}</h2>
-            <p>${project.description}</p>
           </div>
-          <ul>
+          <ul class="project-badges">
             ${project.tags.map((tag) => `<li>${tag}</li>`).join("")}
           </ul>
-        </article>
-        <div class="project-videos">
+          <p class="project-description">${project.description}</p>
+        </div>
+        <h3 class="video-label">项目视频</h3>
+        <div class="project-videos ${project.key}-videos">
           ${project.videos.map((video) => renderVideoCard(video)).join("")}
         </div>
       </section>
@@ -270,20 +263,18 @@ function renderGallery() {
 
 function renderVideoCard(video) {
   return `
-    <article class="video-card ${video.key}-card">
+    <article class="video-card ${video.key}-card ${video.src ? "" : "is-unavailable"}" data-index="${videos.indexOf(video)}">
       <div class="media-frame">
         ${video.src
-          ? `<video src="${video.src}" muted playsinline preload="metadata"></video>`
+          ? `
+            <video src="${video.src}" controls playsinline preload="metadata"></video>
+            <button class="expand-button" type="button" aria-label="放大播放" title="放大播放" data-index="${videos.indexOf(video)}">⛶</button>
+          `
           : `<div class="video-placeholder">待压缩或外链</div>`}
       </div>
       <div class="card-body">
-        <div class="tag-row">
-          <span class="group-tag ${tagClass(video.key)}">${video.group}</span>
-          <span>${video.size}</span>
-        </div>
         <h2 class="card-title">${video.title}</h2>
         ${video.note ? `<p class="card-note">${video.note}</p>` : ""}
-        <button class="open-button" type="button" data-index="${videos.indexOf(video)}" ${video.src ? "" : "disabled"}>播放视频</button>
       </div>
     </article>
   `;
@@ -298,19 +289,8 @@ function openVideo(video) {
   dialogVideo.play().catch(() => {});
 }
 
-tabs.forEach((tab) => {
-  tab.addEventListener("click", () => {
-    tabs.forEach((item) => item.classList.remove("is-active"));
-    tab.classList.add("is-active");
-    activeFilter = tab.dataset.filter;
-    renderGallery();
-  });
-});
-
-searchInput.addEventListener("input", renderGallery);
-
 gallery.addEventListener("click", (event) => {
-  const button = event.target.closest(".open-button");
+  const button = event.target.closest(".expand-button");
   if (!button) return;
   openVideo(videos[Number(button.dataset.index)]);
 });
@@ -325,6 +305,29 @@ dialog.addEventListener("close", () => {
 
 dialog.addEventListener("click", (event) => {
   if (event.target === dialog) dialog.close();
+});
+
+activityImages.forEach((image) => {
+  image.addEventListener("click", () => {
+    openImage(image);
+  });
+});
+
+function openImage(image) {
+  dialogImage.src = image.src;
+  dialogImage.alt = image.alt;
+  imageDialog.showModal();
+}
+
+imageCloseButton.addEventListener("click", () => imageDialog.close());
+
+imageDialog.addEventListener("click", (event) => {
+  if (event.target === imageDialog) imageDialog.close();
+});
+
+imageDialog.addEventListener("close", () => {
+  dialogImage.removeAttribute("src");
+  dialogImage.removeAttribute("alt");
 });
 
 renderGallery();
