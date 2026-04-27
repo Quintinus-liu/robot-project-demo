@@ -28,19 +28,6 @@ input {
   font: inherit;
 }
 
-.site-header {
-  display: block;
-  min-height: auto;
-  padding: 56px min(5vw, 84px) 26px;
-  background: #f7fafc;
-  border-bottom: 0;
-}
-
-.header-copy {
-  max-width: 980px;
-  padding-bottom: 0;
-}
-
 .eyebrow {
   margin: 0 0 16px;
   color: var(--teal);
@@ -48,21 +35,6 @@ input {
   font-weight: 800;
   letter-spacing: 0;
   text-transform: uppercase;
-}
-
-h1 {
-  margin: 0;
-  font-size: clamp(2.4rem, 5vw, 4.6rem);
-  line-height: 0.95;
-  letter-spacing: 0;
-}
-
-.intro {
-  max-width: 680px;
-  margin: 24px 0 0;
-  color: #34413d;
-  font-size: clamp(1rem, 1.6vw, 1.25rem);
-  line-height: 1.8;
 }
 
 .video-card video,
@@ -89,7 +61,7 @@ h1 {
 main {
   width: min(1500px, calc(100% - 40px));
   margin: 0 auto;
-  padding: 18px 0 64px;
+  padding: 56px 0 64px;
 }
 
 .toolbar {
@@ -467,12 +439,6 @@ main {
 }
 
 @media (max-width: 980px) {
-  .site-header {
-    grid-template-columns: 1fr;
-    min-height: auto;
-    padding-top: 42px;
-  }
-
   .project-videos {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
@@ -493,13 +459,10 @@ main {
 }
 
 @media (max-width: 720px) {
-  .site-header {
-    padding: 32px 16px 24px;
-  }
-
   main {
     width: calc(100% - 24px);
     padding-bottom: 36px;
+    padding-top: 32px;
   }
 
   .toolbar {
