@@ -3,7 +3,7 @@ const videos = [
     title: "双手抓水果",
     group: "乐聚机器人",
     key: "leju",
-    src: "乐聚机器人视频素材/双手抓水果.mp4",
+    src: "https://cyyy-00.github.io/assets/videos/leju-02.mp4",
     size: "74.8 MB"
   },
   {
@@ -150,17 +150,15 @@ const videos = [
     title: "宇树 G1 演示 1",
     group: "宇树 G1",
     key: "unitree",
-    src: "",
-    size: "115.6 MB",
-    note: "原视频超过 GitHub 100MB 单文件限制，需压缩后上传或改为外链。"
+    src: "https://cyyy-00.github.io/assets/videos/g1-01.mp4",
+    size: "115.6 MB"
   },
   {
     title: "宇树 G1 演示 2",
     group: "宇树 G1",
     key: "unitree",
-    src: "",
-    size: "121.0 MB",
-    note: "原视频超过 GitHub 100MB 单文件限制，需压缩后上传或改为外链。"
+    src: "https://cyyy-00.github.io/assets/videos/g1-02.mp4",
+    size: "121.0 MB"
   },
   {
     title: "宇树 G1 片段 A",
