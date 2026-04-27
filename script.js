@@ -183,8 +183,7 @@ const projects = [
     period: "2024.08 - 2024.12",
     category: "居家服务机器人",
     name: "湘江智伴自研机器人",
-    description: "精选场景整理、抓盆、多目标抓取和精细交互片段",
-    tags: ["抓取成功率 90%+", "LLM 任务规划", "Sim2Real 部署"]
+    description: "围绕居家服务场景展开，覆盖多目标抓取、家居整理、钢琴交互等任务，突出环境理解与服务执行。"
   },
   {
     key: "leju",
@@ -192,8 +191,7 @@ const projects = [
     period: "2025.07 - 2025.11",
     category: "陪护与安全监护机器人",
     name: "乐聚机器人",
-    description: "精选强化学习走路、双手抓水果、抓拐杖和抓瓶子片段",
-    tags: ["跌倒检测 95%", "抓取成功率 80%+", "ROS 节点部署"]
+    description: "聚焦双臂抓取、强化学习行走与多类水果物体操作，体现机器人在精细操作和运动控制上的综合能力。"
   },
   {
     key: "unitree",
@@ -201,8 +199,7 @@ const projects = [
     period: "2025.11 - 2026.04",
     category: "人形机器人平台",
     name: "宇树 G1",
-    description: "精选人形机器人本体运动、平台演示和大视频待补传片段",
-    tags: ["人形机器人", "运动控制", "平台验证"]
+    description: "展示人形机器人本体动作与运动表现，作为项目中具身智能平台能力的补充展示。"
   }
 ];
 
@@ -243,9 +240,6 @@ function renderGallery() {
             <p class="project-meta">${project.number} · ${project.period} · ${project.category}</p>
             <h2>${project.name}</h2>
           </div>
-          <ul class="project-badges">
-            ${project.tags.map((tag) => `<li>${tag}</li>`).join("")}
-          </ul>
           <p class="project-description">${project.description}</p>
         </div>
         <h3 class="video-label">项目视频</h3>
