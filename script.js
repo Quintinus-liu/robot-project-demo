@@ -180,6 +180,30 @@ const videos = [
   }
 ];
 
+const projects = [
+  {
+    key: "leju",
+    name: "乐聚机器人",
+    eyebrow: "Leju Robotics",
+    description: "聚焦双臂抓取、强化学习行走与多类水果物体操作，体现机器人在精细操作和运动控制上的综合能力。",
+    tags: ["双臂协同", "强化学习运动", "日常物品抓取"]
+  },
+  {
+    key: "xiangjiang",
+    name: "湘江智伴",
+    eyebrow: "Xiangjiang Companion",
+    description: "围绕居家服务场景展开，覆盖多目标抓取、家居整理、钢琴交互等任务，突出环境理解与服务执行。",
+    tags: ["居家服务", "多目标抓取", "人机交互"]
+  },
+  {
+    key: "unitree",
+    name: "宇树 G1",
+    eyebrow: "Unitree G1",
+    description: "展示人形机器人本体动作与运动表现，作为项目中具身智能平台能力的补充展示。",
+    tags: ["人形机器人", "本体运动", "平台演示"]
+  }
+];
+
 const gallery = document.querySelector("#gallery");
 const searchInput = document.querySelector("#searchInput");
 const tabs = document.querySelectorAll(".tab");
@@ -201,39 +225,68 @@ function tagClass(key) {
 
 function renderGallery() {
   const query = searchInput.value.trim().toLowerCase();
-  const filtered = videos.filter((video) => {
-    const matchesFilter = activeFilter === "all" || video.key === activeFilter;
-    const matchesSearch = `${video.title} ${video.group}`.toLowerCase().includes(query);
-    return matchesFilter && matchesSearch;
-  });
+  const visibleProjects = projects
+    .filter((project) => activeFilter === "all" || project.key === activeFilter)
+    .map((project) => {
+      const projectVideos = videos.filter((video) => {
+        const matchesProject = video.key === project.key;
+        const matchesSearch = `${video.title} ${video.group}`.toLowerCase().includes(query);
+        return matchesProject && matchesSearch;
+      });
 
-  videoCount.textContent = videos.length;
+      return { ...project, videos: projectVideos };
+    })
+    .filter((project) => project.videos.length);
 
-  if (!filtered.length) {
+  const filteredCount = visibleProjects.reduce((total, project) => total + project.videos.length, 0);
+
+  videoCount.textContent = filteredCount || videos.length;
+
+  if (!visibleProjects.length) {
     gallery.innerHTML = '<p class="empty">没有找到匹配的视频素材。</p>';
     return;
   }
 
-  gallery.innerHTML = filtered
-    .map((video, index) => `
-      <article class="video-card ${video.key}-card">
-        <div class="media-frame">
-          ${video.src
-            ? `<video src="${video.src}" muted playsinline preload="metadata"></video>`
-            : `<div class="video-placeholder">待压缩或外链</div>`}
-        </div>
-        <div class="card-body">
-          <div class="tag-row">
-            <span class="group-tag ${tagClass(video.key)}">${video.group}</span>
-            <span>${video.size}</span>
+  gallery.innerHTML = visibleProjects
+    .map((project) => `
+      <section class="project-section ${project.key}-section">
+        <article class="project-panel ${project.key}-panel">
+          <div>
+            <p class="panel-kicker">${project.eyebrow}</p>
+            <h2>${project.name}</h2>
+            <p>${project.description}</p>
           </div>
-          <h2 class="card-title">${video.title}</h2>
-          ${video.note ? `<p class="card-note">${video.note}</p>` : ""}
-          <button class="open-button" type="button" data-index="${videos.indexOf(video)}" ${video.src ? "" : "disabled"}>播放视频</button>
+          <ul>
+            ${project.tags.map((tag) => `<li>${tag}</li>`).join("")}
+          </ul>
+        </article>
+        <div class="project-videos">
+          ${project.videos.map((video) => renderVideoCard(video)).join("")}
         </div>
-      </article>
+      </section>
     `)
     .join("");
+}
+
+function renderVideoCard(video) {
+  return `
+    <article class="video-card ${video.key}-card">
+      <div class="media-frame">
+        ${video.src
+          ? `<video src="${video.src}" muted playsinline preload="metadata"></video>`
+          : `<div class="video-placeholder">待压缩或外链</div>`}
+      </div>
+      <div class="card-body">
+        <div class="tag-row">
+          <span class="group-tag ${tagClass(video.key)}">${video.group}</span>
+          <span>${video.size}</span>
+        </div>
+        <h2 class="card-title">${video.title}</h2>
+        ${video.note ? `<p class="card-note">${video.note}</p>` : ""}
+        <button class="open-button" type="button" data-index="${videos.indexOf(video)}" ${video.src ? "" : "disabled"}>播放视频</button>
+      </div>
+    </article>
+  `;
 }
 
 function openVideo(video) {
