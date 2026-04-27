@@ -7,67 +7,11 @@ const videos = [
     size: "74.8 MB"
   },
   {
-    title: "强化学习走路 1",
-    group: "乐聚机器人",
-    key: "leju",
-    src: "乐聚机器人视频素材/强化学习走路1.mp4",
-    size: "2.4 MB"
-  },
-  {
-    title: "强化学习走路 2",
-    group: "乐聚机器人",
-    key: "leju",
-    src: "乐聚机器人视频素材/强化学习走路2.mp4",
-    size: "0.8 MB"
-  },
-  {
     title: "抓拐杖",
     group: "乐聚机器人",
     key: "leju",
     src: "乐聚机器人视频素材/抓拐杖.mp4",
     size: "1.1 MB"
-  },
-  {
-    title: "抓桃子",
-    group: "乐聚机器人",
-    key: "leju",
-    src: "乐聚机器人视频素材/抓桃子.mp4",
-    size: "3.4 MB"
-  },
-  {
-    title: "抓梨子",
-    group: "乐聚机器人",
-    key: "leju",
-    src: "乐聚机器人视频素材/抓梨子.mp4",
-    size: "2.3 MB"
-  },
-  {
-    title: "抓橘子",
-    group: "乐聚机器人",
-    key: "leju",
-    src: "乐聚机器人视频素材/抓橘子.mp4",
-    size: "2.1 MB"
-  },
-  {
-    title: "抓瓶子",
-    group: "乐聚机器人",
-    key: "leju",
-    src: "乐聚机器人视频素材/抓瓶子.mp4",
-    size: "0.7 MB"
-  },
-  {
-    title: "抓芒果",
-    group: "乐聚机器人",
-    key: "leju",
-    src: "乐聚机器人视频素材/抓芒果.mp4",
-    size: "2.9 MB"
-  },
-  {
-    title: "抓香蕉",
-    group: "乐聚机器人",
-    key: "leju",
-    src: "乐聚机器人视频素材/抓香蕉.mp4",
-    size: "2.1 MB"
   },
   {
     title: "综合演示长视频",
