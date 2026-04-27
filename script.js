@@ -3,9 +3,8 @@ const videos = [
     title: "双手抓水果",
     group: "乐聚机器人",
     key: "leju",
-    src: "",
-    size: "74.8 MB",
-    note: "该视频体积较大，当前线上版本待补传或改为外链。"
+    src: "乐聚机器人视频素材/双手抓水果.mp4",
+    size: "74.8 MB"
   },
   {
     title: "强化学习走路 1",
