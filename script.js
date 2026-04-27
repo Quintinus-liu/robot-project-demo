@@ -77,7 +77,7 @@ const videos = [
     size: "38.0 MB"
   },
   {
-    title: "AEG Bot 家居整理",
+    title: "家居整理演示",
     group: "湘江智伴",
     key: "xiangjiang",
     src: "湘江智伴视频材料/aeg_bot_rearrangement.mp4",
@@ -89,48 +89,6 @@ const videos = [
     key: "xiangjiang",
     src: "湘江智伴视频材料/grasp_basin.mp4",
     size: "2.4 MB"
-  },
-  {
-    title: "抓取易拉罐",
-    group: "湘江智伴",
-    key: "xiangjiang",
-    src: "湘江智伴视频材料/grasp_can.mp4",
-    size: "1.6 MB"
-  },
-  {
-    title: "抓取黏土",
-    group: "湘江智伴",
-    key: "xiangjiang",
-    src: "湘江智伴视频材料/grasp_clay.mp4",
-    size: "1.5 MB"
-  },
-  {
-    title: "抓取杯子",
-    group: "湘江智伴",
-    key: "xiangjiang",
-    src: "湘江智伴视频材料/grasp_cup.mp4",
-    size: "2.1 MB"
-  },
-  {
-    title: "抓取颈部模型",
-    group: "湘江智伴",
-    key: "xiangjiang",
-    src: "湘江智伴视频材料/grasp_neck.mp4",
-    size: "1.9 MB"
-  },
-  {
-    title: "抓取纸巾",
-    group: "湘江智伴",
-    key: "xiangjiang",
-    src: "湘江智伴视频材料/grasp_tissue.mp4",
-    size: "2.3 MB"
-  },
-  {
-    title: "抓取 UM 物体",
-    group: "湘江智伴",
-    key: "xiangjiang",
-    src: "湘江智伴视频材料/grasp_um.mp4",
-    size: "2.0 MB"
   },
   {
     title: "多目标抓取",
