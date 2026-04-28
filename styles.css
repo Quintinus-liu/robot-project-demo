@@ -42,7 +42,7 @@ input {
   display: block;
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain;
   background: #111;
 }
 
@@ -223,7 +223,7 @@ main {
 }
 
 .media-frame video {
-  object-fit: cover;
+  object-fit: contain;
 }
 
 .expand-button {
