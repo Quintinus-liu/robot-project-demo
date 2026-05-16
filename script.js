@@ -102,6 +102,12 @@ const projects = [
     category: "人形机器人平台",
     name: "宇树 G1",
   }
+  ,
+  {
+    key: "songling",
+    category: "交互/演示机器人",
+    name: "松灵机器人",
+  }
 ];
 
 const gallery = document.querySelector("#gallery");
@@ -165,12 +171,6 @@ function renderVideoCard(video) {
       </div>
       <div class="card-body">
         <h2 class="card-title">${video.title}</h2>
-          ,
-          {
-            key: "songling",
-            category: "交互/演示机器人",
-            name: "松灵机器人",
-          }
         ${video.note ? `<p class="card-note">${video.note}</p>` : ""}
       </div>
     </article>
