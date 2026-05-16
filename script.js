@@ -76,32 +76,31 @@ const videos = [
     src: "宇树g1视频素材/5be8c4e03cd04c7b020866b4d231f7ab.mp4",
     size: "0.5 MB"
   }
+  ,
+  {
+    title: "松灵机器人 演示",
+    group: "松灵机器人",
+    key: "songling",
+    src: "松灵机器人视频素材/da80d1af77617ff490a48593b47e4521.mp4",
+    size: "27.9 MB"
+  }
 ];
 
 const projects = [
   {
     key: "xiangjiang",
-    number: "Project 01",
-    period: "2024.08 - 2024.12",
     category: "居家服务机器人",
     name: "湘江智伴自研机器人",
-    description: "围绕居家服务场景展开，覆盖多目标抓取、家居整理、钢琴交互等任务，突出环境理解与服务执行。"
   },
   {
     key: "leju",
-    number: "Project 02",
-    period: "2025.07 - 2025.11",
     category: "陪护与安全监护机器人",
     name: "乐聚机器人",
-    description: "聚焦双臂抓取、强化学习行走与多类水果物体操作，体现机器人在精细操作和运动控制上的综合能力。"
   },
   {
     key: "unitree",
-    number: "Project 03",
-    period: "2025.11 - 2026.04",
     category: "人形机器人平台",
     name: "宇树 G1",
-    description: "展示人形机器人本体动作与运动表现，作为项目中具身智能平台能力的补充展示。"
   }
 ];
 
@@ -166,6 +165,12 @@ function renderVideoCard(video) {
       </div>
       <div class="card-body">
         <h2 class="card-title">${video.title}</h2>
+          ,
+          {
+            key: "songling",
+            category: "交互/演示机器人",
+            name: "松灵机器人",
+          }
         ${video.note ? `<p class="card-note">${video.note}</p>` : ""}
       </div>
     </article>
