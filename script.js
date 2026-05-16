@@ -156,10 +156,9 @@ function renderGallery() {
       <section class="project-section ${project.key}-section">
         <div class="project-heading">
           <div>
-            <p class="project-meta">${project.number} · ${project.period} · ${project.category}</p>
+            <p class="project-meta">${project.category}</p>
             <h2>${project.name}</h2>
           </div>
-          <p class="project-description">${project.description}</p>
         </div>
         <h3 class="video-label">项目视频</h3>
         <div class="project-videos ${project.key}-videos">
