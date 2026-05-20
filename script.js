@@ -73,14 +73,14 @@ const videos = [
     title: "宇树 G1 演示 3",
     group: "宇树 G1",
     key: "unitree",
-    src: "宇树g1视频素材/视频3_web.mp4",
+    src: "宇树g1视频素材/视频3_web_v2.mp4",
     size: "17.2 MB"
   },
   {
     title: "宇树 G1 演示 4",
     group: "宇树 G1",
     key: "unitree",
-    src: "宇树g1视频素材/视频4_web.mp4",
+    src: "宇树g1视频素材/视频4_web_v2.mp4",
     size: "16.9 MB"
   }
   ,
@@ -95,8 +95,8 @@ const videos = [
 
 const projects = [
   {
-    key: "xiangjiang",
-    number: "Project 01",
+    src: "乐聚机器人视频素材/推轮椅_web.mp4",
+    size: "1.2 MB"
     period: "2024.08 - 2024.12",
     category: "居家服务机器人",
     name: "湘江智伴自研机器人",
