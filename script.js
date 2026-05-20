@@ -14,6 +14,13 @@ const videos = [
     size: "1.1 MB"
   },
   {
+    title: "推轮椅",
+    group: "乐聚机器人",
+    key: "leju",
+    src: "乐聚机器人视频素材/推轮椅.mp4",
+    size: "0.9 MB"
+  },
+  {
     title: "综合演示长视频",
     group: "乐聚机器人",
     key: "leju",
@@ -63,18 +70,18 @@ const videos = [
     size: "121.0 MB"
   },
   {
-    title: "宇树 G1 片段 A",
+    title: "宇树 G1 演示 3",
     group: "宇树 G1",
     key: "unitree",
-    src: "宇树g1视频素材/9d3ccda20958659475eff1478a1f6e3d.mp4",
-    size: "1.9 MB"
+    src: "宇树g1视频素材/视频3.mp4",
+    size: "121.0 MB"
   },
   {
-    title: "宇树 G1 片段 B",
+    title: "宇树 G1 演示 4",
     group: "宇树 G1",
     key: "unitree",
-    src: "宇树g1视频素材/5be8c4e03cd04c7b020866b4d231f7ab.mp4",
-    size: "0.5 MB"
+    src: "宇树g1视频素材/视频4.mp4",
+    size: "115.6 MB"
   }
   ,
   {
