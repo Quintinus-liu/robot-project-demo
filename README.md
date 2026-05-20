@@ -14,7 +14,7 @@ git lfs install
 git add .
 git commit -m "Add robot video showcase"
 git branch -M main
-git remote add origin https://github.com/你的用户名/你的仓库名.git
+git remote add origin https://github.com/Quintinus-liu/robot-project-demo.git
 git push -u origin main
 ```
 

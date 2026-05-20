@@ -1,4 +1,19 @@
-*.zip
+# Ignore large local video folders (keep repository small)
+乐聚机器人视频素材/
+松灵机器人视频素材/
+湘江智伴视频材料/
+宇树g1视频素材/
+
+# Common ignores
+node_modules/
+.vscode/
+.env
+.DS_Store
+Thumbs.db
+
+# Build artifacts
+dist/
+build/*.zip
 *.pptx
 Video Project.mp4
 .tools/
