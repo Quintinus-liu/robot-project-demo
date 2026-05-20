@@ -132,6 +132,10 @@ const dialogImage = document.querySelector("#dialogImage");
 const imageCloseButton = document.querySelector(".image-close-button");
 const activityImages = document.querySelectorAll(".activity-grid img");
 
+function toAssetUrl(path) {
+  return encodeURI(path);
+}
+
 function tagClass(key) {
   if (key === "unitree") return "unitree";
   if (key === "xiangjiang") return "xiangjiang";
@@ -175,7 +179,7 @@ function renderVideoCard(video) {
       <div class="media-frame">
         ${video.src
           ? `
-            <video src="${video.src}" controls playsinline preload="metadata"></video>
+            <video src="${toAssetUrl(video.src)}" controls playsinline preload="metadata"></video>
             <button class="expand-button" type="button" aria-label="放大播放" title="放大播放" data-index="${videos.indexOf(video)}">⛶</button>
           `
           : `<div class="video-placeholder">待压缩或外链</div>`}
@@ -190,7 +194,7 @@ function renderVideoCard(video) {
 
 function openVideo(video) {
   if (!video.src) return;
-  dialogVideo.src = video.src;
+  dialogVideo.src = toAssetUrl(video.src);
   dialogTitle.textContent = video.title;
   dialogGroup.textContent = `${video.group} · ${video.size}`;
   dialog.showModal();
