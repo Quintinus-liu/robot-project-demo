@@ -73,15 +73,15 @@ const videos = [
     title: "宇树 G1 演示 3",
     group: "宇树 G1",
     key: "unitree",
-    src: "宇树g1视频素材/视频3.mp4",
-    size: "121.0 MB"
+    src: "宇树g1视频素材/视频3_web.mp4",
+    size: "17.2 MB"
   },
   {
     title: "宇树 G1 演示 4",
     group: "宇树 G1",
     key: "unitree",
-    src: "宇树g1视频素材/视频4.mp4",
-    size: "115.6 MB"
+    src: "宇树g1视频素材/视频4_web.mp4",
+    size: "16.9 MB"
   }
   ,
   {
