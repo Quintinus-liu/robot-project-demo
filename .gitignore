@@ -1,5 +1,7 @@
 # Ignore large local video folders (keep repository small)
 乐聚机器人视频素材/
+!乐聚机器人视频素材/
+!乐聚机器人视频素材/推轮椅.mp4
 松灵机器人视频素材/
 湘江智伴视频材料/
 宇树g1视频素材/
