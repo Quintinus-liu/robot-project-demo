@@ -95,8 +95,8 @@ const videos = [
 
 const projects = [
   {
-    src: "乐聚机器人视频素材/推轮椅_web.mp4",
-    size: "1.2 MB"
+    key: "xiangjiang",
+    number: "Project 01",
     period: "2024.08 - 2024.12",
     category: "居家服务机器人",
     name: "湘江智伴自研机器人",
