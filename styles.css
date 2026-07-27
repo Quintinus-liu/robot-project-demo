@@ -10,10 +10,13 @@ h1 { margin-bottom:0; font-size:4.2rem; line-height:1.05; letter-spacing:0; }
 .header-row p { max-width:430px; margin:0 0 5px auto; color:var(--muted); font-size:1.05rem; line-height:1.7; }
 .project-gallery { display:grid; gap:82px; padding-top:58px; }
 .project-section { padding-bottom:2px; }
-.project-heading { display:grid; grid-template-columns:100px minmax(300px,.9fr) minmax(260px,.68fr); gap:24px; align-items:end; margin-bottom:22px; }
-.project-index { align-self:start; padding-top:4px; color:var(--blue); font-size:.82rem; font-weight:800; }
-.project-heading h2 { margin-bottom:0; font-size:3.05rem; line-height:1.13; letter-spacing:0; }
-.project-summary { margin:0; color:var(--muted); font-size:1rem; line-height:1.75; }
+.project-heading { display:grid; grid-template-columns:minmax(460px,1.15fr) minmax(300px,.7fr); gap:44px; align-items:end; margin-bottom:26px; }
+.project-title-block { min-width:0; }
+.project-kicker { display:flex; gap:14px; align-items:center; margin-bottom:14px; }
+.project-index { padding-right:14px; border-right:1px solid #b9c9d9; color:var(--blue); font-size:.78rem; font-weight:800; line-height:1; white-space:nowrap; }
+.project-kicker .eyebrow { margin:0; font-size:.74rem; }
+.project-heading h2 { margin-bottom:0; font-size:2.45rem; line-height:1.22; letter-spacing:0; }
+.project-summary { max-width:500px; margin:0 0 2px auto; color:var(--muted); font-size:.98rem; line-height:1.75; }
 .project-details { display:grid; grid-template-columns:1fr minmax(280px,.8fr); gap:26px; align-items:start; margin:0 0 34px; padding:21px 0; border-top:1px solid var(--line); border-bottom:1px solid var(--line); }
 .project-details ul { display:flex; flex-wrap:wrap; gap:9px 20px; margin:0; padding:0; list-style:none; }
 .project-details li { position:relative; padding-left:13px; color:#37516e; font-size:.93rem; line-height:1.55; }
@@ -49,6 +52,6 @@ h1 { margin-bottom:0; font-size:4.2rem; line-height:1.05; letter-spacing:0; }
 .dialog-info h2 { margin:0 0 7px; font-size:1.28rem; }
 .close-button,.image-close-button { position:absolute; top:12px; right:12px; z-index:1; width:38px; height:38px; border:1px solid rgba(255,255,255,.3); border-radius:50%; background:rgba(0,0,0,.5); color:#fff; cursor:pointer; font-size:1.55rem; line-height:1; }
 .image-dialog img { display:block; width:100%; max-height:86vh; background:#111; object-fit:contain; }
-@media (max-width:1100px) { .project-videos { grid-template-columns:repeat(3,minmax(0,1fr)); } .project-heading { grid-template-columns:75px 1fr; } .project-summary { grid-column:2; max-width:740px; } }
-@media (max-width:720px) { main { width:calc(100% - 28px); padding:34px 0 46px; } h1 { font-size:3rem; } .project-heading h2 { font-size:2.25rem; } .section-heading h2 { font-size:1.9rem; } .header-row,.project-heading,.project-details,.section-heading { grid-template-columns:1fr; gap:15px; } .header-row p,.section-heading > p { margin-left:0; } .project-heading { gap:9px; } .project-summary { grid-column:auto; } .project-index { padding-top:0; } .project-gallery { gap:58px; padding-top:42px; } .project-videos { grid-template-columns:repeat(2,minmax(0,1fr)); gap:12px; } .card-body { min-height:90px; padding:12px; } .activity-grid { grid-template-columns:repeat(2,minmax(0,1fr)); } }
+@media (max-width:1100px) { .project-videos { grid-template-columns:repeat(3,minmax(0,1fr)); } .project-heading { grid-template-columns:1fr; gap:16px; } .project-summary { max-width:740px; margin-left:0; } }
+@media (max-width:720px) { main { width:calc(100% - 28px); padding:34px 0 46px; } h1 { font-size:3rem; } .project-heading h2 { font-size:2rem; } .section-heading h2 { font-size:1.9rem; } .header-row,.project-heading,.project-details,.section-heading { grid-template-columns:1fr; gap:15px; } .header-row p,.section-heading > p { margin-left:0; } .project-heading { gap:9px; } .project-kicker { gap:10px; margin-bottom:11px; } .project-index { padding-right:10px; } .project-summary { margin-left:0; } .project-gallery { gap:58px; padding-top:42px; } .project-videos { grid-template-columns:repeat(2,minmax(0,1fr)); gap:12px; } .card-body { min-height:90px; padding:12px; } .activity-grid { grid-template-columns:repeat(2,minmax(0,1fr)); } }
 @media (max-width:420px) { .project-videos { grid-template-columns:1fr; } h1 { font-size:2.3rem; } }

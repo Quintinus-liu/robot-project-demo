@@ -35,8 +35,8 @@ const projects = [
     groups: [
       { label: "宇树 G1 · 真机运动展示", videos: [
         ["G1 运动展示 1", "视频1.mp4", "人形机器人真机动作表现"],
-        ["后旋踢", "后旋踢.mp4", "全身协调与快速踢击动作控制"],
-        ["上台阶", "上台阶.mp4", "面向复杂地形的步态与平衡控制"],
+        ["后旋踢", "后旋踢_web.mp4", "全身协调与快速踢击动作控制"],
+        ["上台阶", "上台阶_web.mp4", "面向复杂地形的步态与平衡控制"],
         ["G1 运动展示 4", "视频4_web_v2.mp4", "验证“光学动捕数采-动作提取-动作重定向-策略训练-实机部署”全链路"]
       ]}
     ]
@@ -78,20 +78,29 @@ function renderVideo(project, group, video) {
   const [title, filename, note] = video;
   const src = videoPath(project, group, filename);
   return `<article class="video-card">
-    <div class="media-frame"><video src="${encodeURI(src)}" controls playsinline preload="metadata"></video><button class="expand-button" type="button" aria-label="放大播放 ${title}" title="放大播放" data-src="${encodeURI(src)}" data-title="${title}" data-group="${group.label}" data-note="${note}">&#x26F6;</button></div>
+    <div class="media-frame"><video src="${encodeURI(src)}" controls muted playsinline preload="metadata"></video><button class="expand-button" type="button" aria-label="放大播放 ${title}" title="放大播放" data-src="${encodeURI(src)}" data-title="${title}" data-group="${group.label}" data-note="${note}">&#x26F6;</button></div>
     <div class="card-body"><h4>${title}</h4><p>${note}</p></div>
   </article>`;
 }
 
 function renderProject(project) {
   return `<section class="project-section ${project.key}">
-    <div class="project-heading"><div class="project-index">项目 ${project.number}</div><div><p class="eyebrow">${project.eyebrow}</p><h2>${project.name}</h2></div><p class="project-summary">${project.summary}</p></div>
+    <div class="project-heading"><div class="project-title-block"><div class="project-kicker"><span class="project-index">项目 ${project.number}</span><p class="eyebrow">${project.eyebrow}</p></div><h2>${project.name}</h2></div><p class="project-summary">${project.summary}</p></div>
     <div class="project-details"><ul>${project.highlights.map((item) => `<li>${item}</li>`).join("")}</ul><p><strong>项目成果</strong>${project.result}</p></div>
     ${project.groups.map((group) => `<section class="video-group"><h3>${group.label}</h3><div class="project-videos">${group.videos.map((video) => renderVideo(project, group, video)).join("")}</div></section>`).join("")}
   </section>`;
 }
 
 gallery.innerHTML = projects.map(renderProject).join("");
+
+function enforceMute(video) {
+  video.muted = true;
+  video.addEventListener("volumechange", () => {
+    if (!video.muted) video.muted = true;
+  });
+}
+
+document.querySelectorAll("video").forEach(enforceMute);
 
 gallery.addEventListener("click", (event) => {
   const button = event.target.closest(".expand-button");
@@ -100,6 +109,7 @@ gallery.addEventListener("click", (event) => {
   dialogTitle.textContent = button.dataset.title;
   dialogGroup.textContent = button.dataset.group;
   dialogNote.textContent = button.dataset.note;
+  dialogVideo.muted = true;
   dialog.showModal();
   dialogVideo.play().catch(() => {});
 });
