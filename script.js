@@ -1,252 +1,117 @@
-const videos = [
-  {
-    title: "双手抓水果",
-    group: "乐聚机器人",
-    key: "leju",
-    src: "乐聚机器人视频素材/双手抓水果.mp4",
-    size: "74.8 MB"
-  },
-  {
-    title: "抓拐杖",
-    group: "乐聚机器人",
-    key: "leju",
-    src: "乐聚机器人视频素材/抓拐杖.mp4",
-    size: "1.1 MB"
-  },
-  {
-    title: "推轮椅",
-    group: "乐聚机器人",
-    key: "leju",
-    src: "乐聚机器人视频素材/推轮椅.mp4",
-    size: "0.9 MB"
-  },
-  {
-    title: "综合演示长视频",
-    group: "乐聚机器人",
-    key: "leju",
-    src: "乐聚机器人视频素材/长视频.mp4",
-    size: "38.0 MB"
-  },
-  {
-    title: "家居整理演示",
-    group: "湘江智伴",
-    key: "xiangjiang",
-    src: "湘江智伴视频材料/aeg_bot_rearrangement.mp4",
-    size: "61.3 MB"
-  },
-  {
-    title: "抓取盆",
-    group: "湘江智伴",
-    key: "xiangjiang",
-    src: "湘江智伴视频材料/grasp_basin.mp4",
-    size: "2.4 MB"
-  },
-  {
-    title: "多目标抓取",
-    group: "湘江智伴",
-    key: "xiangjiang",
-    src: "湘江智伴视频材料/multi_obj_grasp.mp4",
-    size: "4.4 MB"
-  },
-  {
-    title: "钢琴交互演示",
-    group: "湘江智伴",
-    key: "xiangjiang",
-    src: "湘江智伴视频材料/video_piano_2.mp4",
-    size: "19.5 MB"
-  },
-  {
-    title: "宇树 G1 演示 1",
-    group: "宇树 G1",
-    key: "unitree",
-    src: "宇树g1视频素材/视频1.mp4",
-    size: "115.6 MB"
-  },
-  {
-    title: "宇树 G1 演示 2",
-    group: "宇树 G1",
-    key: "unitree",
-    src: "宇树g1视频素材/视频2.mp4",
-    size: "121.0 MB"
-  },
-  {
-    title: "宇树 G1 演示 3",
-    group: "宇树 G1",
-    key: "unitree",
-    src: "宇树g1视频素材/视频3_web_v2.mp4",
-    size: "17.2 MB"
-  },
-  {
-    title: "宇树 G1 演示 4",
-    group: "宇树 G1",
-    key: "unitree",
-    src: "宇树g1视频素材/视频4_web_v2.mp4",
-    size: "16.9 MB"
-  }
-  ,
-  {
-    title: "松灵机器人 演示",
-    group: "松灵机器人",
-    key: "songling",
-    src: "松灵机器人视频素材/da80d1af77617ff490a48593b47e4521.mp4",
-    size: "27.9 MB"
-  }
-];
-
 const projects = [
   {
-    key: "xiangjiang",
-    number: "Project 01",
-    period: "2024.08 - 2024.12",
-    category: "居家服务机器人",
-    name: "湘江智伴自研机器人",
-    description: "围绕居家服务场景展开，覆盖多目标抓取、家居整理、钢琴交互等任务，突出环境理解与服务执行。"
+    key: "home-service",
+    number: "01",
+    eyebrow: "Home Service Robotics",
+    name: "居家服务与智能陪伴机器人",
+    summary: "面向家庭养老陪护场景，构建从环境感知、目标定位到抓取、交互与安全守护的闭环能力。湘江智伴侧重服务任务验证，乐聚人形机器人侧重双臂操作、轮椅辅助与具身策略落地。",
+    highlights: ["RGB-D 感知与开放词汇目标识别", "7DoF 抓取位姿生成与路径求解", "轮椅辅助、跌倒检测与语音陪护"],
+    result: "完成多类居家任务演示，覆盖物品整理、多目标抓取、轮椅辅助与双臂精细操作。",
+    groups: [
+      { label: "湘江智伴 · 服务任务", videos: [
+        ["家居整理", "aeg_bot_rearrangement.mp4", "面向居家环境的自主整理任务"],
+        ["抓取面盆", "grasp_basin.mp4", "大尺寸日用品抓取"],
+        ["抓取易拉罐", "grasp_can.mp4", "日常物品稳定抓取"],
+        ["多目标抓取", "multi_obj_grasp.mp4", "连续目标识别与抓取"],
+        ["钢琴交互", "video_piano_2.mp4", "人机互动与任务执行展示"]
+      ]},
+      { label: "乐聚机器人 · 操作与辅助", videos: [
+        ["双手抓水果", "双手抓水果.mp4", "双臂协同抓取任务"],
+        ["抓拐杖", "抓拐杖.mp4", "面向陪护物品的精细抓取，完成“数据采集-数据标注-模型训练-实机部署”全链路验证"],
+        ["抓瓶子", "抓瓶子.mp4", "视觉引导下的目标操作"],
+        ["推轮椅", "推轮椅_web.mp4", "轮椅辅助与稳定随动"],
+        ["跌倒检测", "跌倒检测.mp4", "基于人体骨架时序特征、目标检测并设计语义确认机制，实现跌倒检测"]
+      ]}
+    ]
   },
   {
-    key: "leju",
-    number: "Project 02",
-    period: "2025.07 - 2025.11",
-    category: "陪护与安全监护机器人",
-    name: "乐聚机器人",
-    description: "聚焦双臂抓取、强化学习行走与多类水果物体操作，体现机器人在精细操作和运动控制上的综合能力。"
+    key: "motion-learning",
+    number: "02",
+    eyebrow: "Motion Retargeting & Imitation Learning",
+    name: "人形机器人运动重定向与模仿学习",
+    summary: "构建“动作采集 - 动作重定向 - 策略训练 - 真机部署”闭环，处理人体与机器人结构差异、接触约束和 Sim2Real 迁移带来的执行稳定性问题。",
+    highlights: ["GMR 动作重定向与轨迹修正", "关节极限、速度与足端接触约束", "BeyondMimic 策略训练与 G1 真机部署"],
+    result: "完成原始动作数据处理、重定向、策略训练、仿真验证和真机部署链路。",
+    groups: [
+      { label: "宇树 G1 · 真机运动展示", videos: [
+        ["G1 运动展示 1", "视频1.mp4", "人形机器人真机动作表现"],
+        ["后旋踢", "后旋踢.mp4", "全身协调与快速踢击动作控制"],
+        ["上台阶", "上台阶.mp4", "面向复杂地形的步态与平衡控制"],
+        ["G1 运动展示 4", "视频4_web_v2.mp4", "验证“光学动捕数采-动作提取-动作重定向-策略训练-实机部署”全链路"]
+      ]}
+    ]
   },
   {
-    key: "unitree",
-    number: "Project 03",
-    period: "2025.11 - 2026.04",
-    category: "人形机器人平台",
-    name: "宇树 G1",
-    description: "展示人形机器人本体动作与运动表现，作为项目中具身智能平台能力的补充展示。"
-  },
-  {
-    key: "songling",
-    number: "Project 04",
-    period: "2025.01 - 2025.06",
-    category: "交互/演示机器人",
-    name: "松灵机器人",
-    description: "展示松灵机器人在交互与演示场景下的视频素材与能力。"
+    key: "teleoperation",
+    number: "03",
+    eyebrow: "Whole-body Teleoperation",
+    name: "人形机器人混合遥操作与全身平衡控制",
+    summary: "面向上半身遥操作、下半身自主平衡场景，搭建动作捕捉遥操、强化学习平衡、仿真验证与真机部署的一体化流程。",
+    highlights: ["Noitom 惯性动捕与 14DoF 手臂 retarget", "IsaacLab 下肢强化学习平衡策略", "MuJoCo 仿真与真机控制链路"],
+    result: "实现动捕动作采集与回放，并完成上半身实时跟随、下半身行走与转向控制的联调验证。",
+    groups: [
+      { label: "动捕遥操 · 动作采集与跟随", videos: [
+        ["动捕遥操作展示 1", "0d221b98d882a49b6e94600c6e9a7ee8.mp4", "上半身动作跟随与遥操作，下半身强化学习保持平衡和移动"],
+        ["动捕遥操作展示 2", "762c61e68603bfede644d5968038b084.mp4", "遥操灵巧手"]
+      ]}
+    ]
   }
 ];
 
+const folderByProject = { "home-service": "", "motion-learning": "宇树g1视频素材", teleoperation: "动捕遥操" };
+const homeFolders = { "湘江智伴 · 服务任务": "湘江智伴视频材料", "乐聚机器人 · 操作与辅助": "乐聚机器人视频素材" };
 const gallery = document.querySelector("#gallery");
 const dialog = document.querySelector("#videoDialog");
 const dialogVideo = document.querySelector("#dialogVideo");
 const dialogTitle = document.querySelector("#dialogTitle");
 const dialogGroup = document.querySelector("#dialogGroup");
-const closeButton = document.querySelector(".close-button");
+const dialogNote = document.querySelector("#dialogNote");
 const imageDialog = document.querySelector("#imageDialog");
 const dialogImage = document.querySelector("#dialogImage");
-const imageCloseButton = document.querySelector(".image-close-button");
-const activityImages = document.querySelectorAll(".activity-grid img");
 
-function toAssetUrl(path) {
-  return encodeURI(path);
+function videoPath(project, group, filename) {
+  const folder = homeFolders[group.label] || folderByProject[project.key];
+  return `${folder}/${filename}`;
 }
 
-function tagClass(key) {
-  if (key === "unitree") return "unitree";
-  if (key === "xiangjiang") return "xiangjiang";
-  if (key === "leju") return "leju";
-  if (key === "songling") return "songling";
-  return "";
+function renderVideo(project, group, video) {
+  const [title, filename, note] = video;
+  const src = videoPath(project, group, filename);
+  return `<article class="video-card">
+    <div class="media-frame"><video src="${encodeURI(src)}" controls playsinline preload="metadata"></video><button class="expand-button" type="button" aria-label="放大播放 ${title}" title="放大播放" data-src="${encodeURI(src)}" data-title="${title}" data-group="${group.label}" data-note="${note}">&#x26F6;</button></div>
+    <div class="card-body"><h4>${title}</h4><p>${note}</p></div>
+  </article>`;
 }
 
-function renderGallery() {
-  const visibleProjects = projects.map((project) => ({
-    ...project,
-    videos: videos.filter((video) => video.key === project.key)
-  }));
-
-  if (!visibleProjects.length) {
-    gallery.innerHTML = '<p class="empty">没有找到匹配的视频素材。</p>';
-    return;
-  }
-
-  gallery.innerHTML = visibleProjects
-    .map((project) => `
-      <section class="project-section ${project.key}-section">
-        <div class="project-heading">
-          <div>
-            <p class="project-meta">${project.category}</p>
-            <h2>${project.name}</h2>
-          </div>
-        </div>
-        <h3 class="video-label">项目视频</h3>
-        <div class="project-videos ${project.key}-videos">
-          ${project.videos.map((video) => renderVideoCard(video)).join("")}
-        </div>
-      </section>
-    `)
-    .join("");
+function renderProject(project) {
+  return `<section class="project-section ${project.key}">
+    <div class="project-heading"><div class="project-index">项目 ${project.number}</div><div><p class="eyebrow">${project.eyebrow}</p><h2>${project.name}</h2></div><p class="project-summary">${project.summary}</p></div>
+    <div class="project-details"><ul>${project.highlights.map((item) => `<li>${item}</li>`).join("")}</ul><p><strong>项目成果</strong>${project.result}</p></div>
+    ${project.groups.map((group) => `<section class="video-group"><h3>${group.label}</h3><div class="project-videos">${group.videos.map((video) => renderVideo(project, group, video)).join("")}</div></section>`).join("")}
+  </section>`;
 }
 
-function renderVideoCard(video) {
-  return `
-    <article class="video-card ${video.key}-card ${video.src ? "" : "is-unavailable"}" data-index="${videos.indexOf(video)}">
-      <div class="media-frame">
-        ${video.src
-          ? `
-            <video src="${toAssetUrl(video.src)}" controls playsinline preload="metadata"></video>
-            <button class="expand-button" type="button" aria-label="放大播放" title="放大播放" data-index="${videos.indexOf(video)}">⛶</button>
-          `
-          : `<div class="video-placeholder">待压缩或外链</div>`}
-      </div>
-      <div class="card-body">
-        <h2 class="card-title">${video.title}</h2>
-        ${video.note ? `<p class="card-note">${video.note}</p>` : ""}
-      </div>
-    </article>
-  `;
-}
-
-function openVideo(video) {
-  if (!video.src) return;
-  dialogVideo.src = toAssetUrl(video.src);
-  dialogTitle.textContent = video.title;
-  dialogGroup.textContent = `${video.group} · ${video.size}`;
-  dialog.showModal();
-  dialogVideo.play().catch(() => {});
-}
+gallery.innerHTML = projects.map(renderProject).join("");
 
 gallery.addEventListener("click", (event) => {
   const button = event.target.closest(".expand-button");
   if (!button) return;
-  openVideo(videos[Number(button.dataset.index)]);
+  dialogVideo.src = button.dataset.src;
+  dialogTitle.textContent = button.dataset.title;
+  dialogGroup.textContent = button.dataset.group;
+  dialogNote.textContent = button.dataset.note;
+  dialog.showModal();
+  dialogVideo.play().catch(() => {});
 });
 
-closeButton.addEventListener("click", () => dialog.close());
-
-dialog.addEventListener("close", () => {
-  dialogVideo.pause();
-  dialogVideo.removeAttribute("src");
-  dialogVideo.load();
-});
-
-dialog.addEventListener("click", (event) => {
-  if (event.target === dialog) dialog.close();
-});
-
-activityImages.forEach((image) => {
-  image.addEventListener("click", () => {
-    openImage(image);
-  });
-});
-
-function openImage(image) {
+document.querySelector(".close-button").addEventListener("click", () => dialog.close());
+dialog.addEventListener("click", (event) => { if (event.target === dialog) dialog.close(); });
+dialog.addEventListener("close", () => { dialogVideo.pause(); dialogVideo.removeAttribute("src"); dialogVideo.load(); });
+document.querySelectorAll(".activity-grid img").forEach((image) => image.addEventListener("click", () => {
   dialogImage.src = image.src;
   dialogImage.alt = image.alt;
   imageDialog.showModal();
-}
-
-imageCloseButton.addEventListener("click", () => imageDialog.close());
-
-imageDialog.addEventListener("click", (event) => {
-  if (event.target === imageDialog) imageDialog.close();
-});
-
-imageDialog.addEventListener("close", () => {
-  dialogImage.removeAttribute("src");
-  dialogImage.removeAttribute("alt");
-});
-
-renderGallery();
+}));
+document.querySelector(".image-close-button").addEventListener("click", () => imageDialog.close());
+imageDialog.addEventListener("click", (event) => { if (event.target === imageDialog) imageDialog.close(); });
+imageDialog.addEventListener("close", () => { dialogImage.removeAttribute("src"); dialogImage.removeAttribute("alt"); });

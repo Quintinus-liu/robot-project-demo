@@ -3,54 +3,53 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>机器人视频素材展示</title>
+    <meta name="description" content="人形机器人项目视频展示：居家服务、运动重定向与动捕遥操。">
+    <title>机器人项目视频展示</title>
     <link rel="stylesheet" href="styles.css">
   </head>
   <body>
     <main>
+      <header class="site-header">
+        <p class="eyebrow">Robotics Portfolio</p>
+        <div class="header-row">
+          <h1>机器人项目视频展示</h1>
+          <p>围绕居家服务、人形运动学习与全身遥操作的工程实践。</p>
+        </div>
+      </header>
+
       <section id="gallery" class="project-gallery" aria-live="polite"></section>
 
-      <section class="activity-section" aria-label="活动剪影">
+      <section class="activity-section" aria-label="项目现场记录">
         <div class="section-heading">
-          <p class="eyebrow">Event Moments</p>
-          <h2>活动剪影</h2>
-          <p>记录项目展示、调试交流与现场互动中的片段。</p>
+          <div>
+            <p class="eyebrow">Project Moments</p>
+            <h2>项目现场记录</h2>
+          </div>
+          <p>从原型调试、任务演示到现场交流，记录居家服务机器人从感知到执行的真实工作状态。</p>
         </div>
         <div class="activity-grid">
-          <figure>
-            <img src="湘江智伴视频材料/微信图片_20260414225747_181_24.jpg" alt="活动现场剪影一">
-          </figure>
-          <figure>
-            <img src="湘江智伴视频材料/微信图片_20260414225609_179_24.jpg" alt="活动现场剪影二">
-          </figure>
-          <figure>
-            <img src="湘江智伴视频材料/微信图片_20260414224902_178_24.jpg" alt="活动现场剪影三">
-          </figure>
-          <figure>
-            <img src="湘江智伴视频材料/微信图片_20260414225926_182_24.png" alt="活动现场剪影四">
-          </figure>
+          <figure><img src="湘江智伴视频材料/微信图片_20260414225747_181_24.jpg" alt="机器人项目现场记录一"></figure>
+          <figure><img src="湘江智伴视频材料/微信图片_20260414225609_179_24.jpg" alt="机器人项目现场记录二"></figure>
+          <figure><img src="湘江智伴视频材料/微信图片_20260414224902_178_24.jpg" alt="机器人项目现场记录三"></figure>
+          <figure><img src="湘江智伴视频材料/微信图片_20260414225926_182_24.png" alt="机器人项目现场记录四"></figure>
         </div>
       </section>
     </main>
 
     <dialog id="videoDialog" class="video-dialog">
       <div class="dialog-shell">
-        <button class="close-button" type="button" aria-label="关闭">×</button>
+        <button class="close-button" type="button" aria-label="关闭视频" title="关闭">&times;</button>
         <video id="dialogVideo" controls playsinline preload="metadata"></video>
-        <div class="dialog-info">
-          <p id="dialogGroup"></p>
-          <h2 id="dialogTitle"></h2>
-        </div>
+        <div class="dialog-info"><p id="dialogGroup"></p><h2 id="dialogTitle"></h2><p id="dialogNote"></p></div>
       </div>
     </dialog>
 
     <dialog id="imageDialog" class="image-dialog">
       <div class="image-dialog-shell">
-        <button class="image-close-button" type="button" aria-label="关闭">×</button>
+        <button class="image-close-button" type="button" aria-label="关闭图片" title="关闭">&times;</button>
         <img id="dialogImage" alt="">
       </div>
     </dialog>
-
     <script src="script.js"></script>
   </body>
 </html>
