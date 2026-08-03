@@ -55,10 +55,27 @@ const projects = [
         ["动捕遥操作展示 2", "762c61e68603bfede644d5968038b084.mp4", "遥操灵巧手"]
       ]}
     ]
+  },
+  {
+    key: "imitation-vla",
+    number: "04",
+    eyebrow: "Imitation Learning & Multimodal Policy",
+    name: "机器人模仿学习与多模态操作",
+    summary: "围绕机器人操作任务，结合松灵机器人 ACT 行为克隆训练与 Pi0.5 多模态策略演示，展示从示范数据、策略学习到真实设备执行的完整链路。",
+    highlights: ["ACT 示范数据采集与行为克隆", "Pi0.5 多模态感知与动作生成", "真实机器人策略部署与任务执行"],
+    result: "完成 ACT 与 Pi0.5 相关视频展示，覆盖模仿学习训练和机器人操作策略执行。",
+    groups: [
+      { label: "松灵机器人 · ACT 训练", folder: "松灵机器人视频素材", videos: [
+        ["松灵机器人 ACT 训练演示", "da80d1af77617ff490a48593b47e4521.mp4", "基于 ACT 采集示范数据并训练机器人完成目标动作，展示策略在真实设备上的执行效果"]
+      ]},
+      { label: "Pi0.5 · 多模态操作策略", folder: "pi0.5", videos: [
+        ["Pi0.5 操作策略演示", "47c0e57f7ae999f9063a1cd12e29247f_raw.mp4", "展示 Pi0.5 相关多模态策略在机器人操作任务中的执行过程"]
+      ]}
+    ]
   }
 ];
 
-const folderByProject = { "home-service": "", "motion-learning": "宇树g1视频素材", teleoperation: "动捕遥操" };
+const folderByProject = { "home-service": "", "motion-learning": "宇树g1视频素材", teleoperation: "动捕遥操", "imitation-vla": "" };
 const homeFolders = { "湘江智伴 · 服务任务": "湘江智伴视频材料", "乐聚机器人 · 操作与辅助": "乐聚机器人视频素材" };
 const gallery = document.querySelector("#gallery");
 const dialog = document.querySelector("#videoDialog");
@@ -70,7 +87,7 @@ const imageDialog = document.querySelector("#imageDialog");
 const dialogImage = document.querySelector("#dialogImage");
 
 function videoPath(project, group, filename) {
-  const folder = homeFolders[group.label] || folderByProject[project.key];
+  const folder = group.folder || homeFolders[group.label] || folderByProject[project.key];
   return `${folder}/${filename}`;
 }
 
