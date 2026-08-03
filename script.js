@@ -65,11 +65,9 @@ const projects = [
     highlights: ["ACT 示范数据采集与行为克隆", "Pi0.5 多模态感知与动作生成", "真实机器人策略部署与任务执行"],
     result: "完成 ACT 与 Pi0.5 相关视频展示，覆盖模仿学习训练和机器人操作策略执行。",
     groups: [
-      { label: "松灵机器人 · ACT 训练", folder: "松灵机器人视频素材", videos: [
-        ["松灵机器人 ACT 训练演示", "da80d1af77617ff490a48593b47e4521.mp4", "基于 ACT 采集示范数据并训练机器人完成目标动作，展示策略在真实设备上的执行效果"]
-      ]},
-      { label: "Pi0.5 · 多模态操作策略", folder: "pi0.5", videos: [
-        ["Pi0.5 操作策略演示", "47c0e57f7ae999f9063a1cd12e29247f_raw.mp4", "展示 Pi0.5 相关多模态策略在机器人操作任务中的执行过程"]
+      { label: "ACT 与 Pi0.5 · 策略训练与执行", videos: [
+        ["松灵机器人 ACT 训练演示", "da80d1af77617ff490a48593b47e4521.mp4", "基于 ACT 采集示范数据并训练机器人完成目标动作，展示策略在真实设备上的执行效果", "松灵机器人视频素材"],
+        ["Pi0.5 操作策略演示", "47c0e57f7ae999f9063a1cd12e29247f_raw.mp4", "展示 Pi0.5 相关多模态策略在机器人操作任务中的执行过程", "pi0.5"]
       ]}
     ]
   }
@@ -86,14 +84,14 @@ const dialogNote = document.querySelector("#dialogNote");
 const imageDialog = document.querySelector("#imageDialog");
 const dialogImage = document.querySelector("#dialogImage");
 
-function videoPath(project, group, filename) {
-  const folder = group.folder || homeFolders[group.label] || folderByProject[project.key];
+function videoPath(project, group, filename, folderName) {
+  const folder = folderName || group.folder || homeFolders[group.label] || folderByProject[project.key];
   return `${folder}/${filename}`;
 }
 
 function renderVideo(project, group, video) {
-  const [title, filename, note] = video;
-  const src = videoPath(project, group, filename);
+  const [title, filename, note, folderName] = video;
+  const src = videoPath(project, group, filename, folderName);
   return `<article class="video-card">
     <div class="media-frame"><video src="${encodeURI(src)}" controls muted playsinline preload="metadata"></video><button class="expand-button" type="button" aria-label="放大播放 ${title}" title="放大播放" data-src="${encodeURI(src)}" data-title="${title}" data-group="${group.label}" data-note="${note}">&#x26F6;</button></div>
     <div class="card-body"><h4>${title}</h4><p>${note}</p></div>
